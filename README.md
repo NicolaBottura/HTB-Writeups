@@ -1,3 +1,3 @@
 # CTF_Scripts
 
-![](https://i.imgur.com/OG5MWkV.jpg[/img])
+![](https://i.imgur.com/m57Q6CL.png[/img])
