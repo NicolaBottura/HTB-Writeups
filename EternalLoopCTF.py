@@ -1,4 +1,11 @@
-#HTB/Challenges/Misc/Eternal Loop
+'''
+HTB/Challenges/Misc/Eternal Loop
+
+After unzipping the file downloaded from HTB you obtain another zip, called 37366.zip.
+The password used to unzip this file is the name of the file obtained after unzipping this, which is another zip file.
+Keep unzipping the files until you obtain zip 6969.zip which contains a file called DoNotTouch.
+The password to unzip 6969.zip can be found using fcrackzip and the flag using Strings on the file obtained.
+'''
 
 import zipfile
 import subprocess
