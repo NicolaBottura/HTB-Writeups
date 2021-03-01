@@ -1,1 +1,3 @@
-# CTF_Scripts
+# CTF
+
+Writeups/Scripts
