@@ -14,4 +14,4 @@ Most the links on the page just point back to the page itself, but there are lin
 In the footer there’s a reference to “GoodGames.HTB”, that I added in my hosts file.
 
 In the top right corner of the website there is a little user icon that by clicking it, it pops a sign-in box that contains also a link to a sign-up page.
-These forms are vulnerable to **SQLi**, we can this by trying to log in with credentials **admin** and password **'OR 1=1-- -;**.
+These forms are vulnerable to **SQLi**, we can see this by trying to log in with credentials **admin** and password **'OR 1=1-- -;**.
