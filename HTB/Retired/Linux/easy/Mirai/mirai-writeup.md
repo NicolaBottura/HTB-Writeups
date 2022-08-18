@@ -1,6 +1,6 @@
 # Mirai - Linux, easy (10.10.10.48)
 
-### Nmap scan:
+### Enumeration
 ```
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 6.7p1 Debian 5+deb8u3 (protocol 2.0)
