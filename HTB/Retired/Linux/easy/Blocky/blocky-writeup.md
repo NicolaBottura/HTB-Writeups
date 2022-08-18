@@ -1,6 +1,6 @@
 # Blocky - Linux, easy (10.10.10.37)
 
-### Nmap scan:
+### Enumeration
 ```
 PORT     STATE  SERVICE VERSION
 21/tcp   open   ftp     ProFTPD 1.3.5a
