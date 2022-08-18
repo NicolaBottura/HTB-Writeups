@@ -1,6 +1,6 @@
 # GoodGames - Linux, easy (10.10.11.130)
 
-### Nmap scan:
+### Enumeration
 ```
 PORT   STATE SERVICE VERSION
 80/tcp open  http    Apache httpd 2.4.51
