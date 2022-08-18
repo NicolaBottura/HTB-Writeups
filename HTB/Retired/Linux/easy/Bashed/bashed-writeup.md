@@ -1,6 +1,6 @@
 # Bashed - Linux, easy (10.10.10.68)
 
-### Nmap scan:
+### Enumeration
 ```
 PORT   STATE SERVICE VERSION
 80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
