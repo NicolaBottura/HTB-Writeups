@@ -1,7 +1,7 @@
 # Antique - Linux, easy
 ## IP: 10.10.11.107
 
-### Nmap scan:
+### Enumeration
 ```
 PORT   STATE SERVICE VERSION
 23/tcp open  telnet?
