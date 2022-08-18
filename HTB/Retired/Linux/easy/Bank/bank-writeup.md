@@ -1,6 +1,6 @@
 # Bank - Linux, easy (10.10.10.29)
 
-### Nmap scan:
+### Enumeration
 ```
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.8 (Ubuntu Linux; protocol 2.0)
