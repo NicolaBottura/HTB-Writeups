@@ -14,3 +14,22 @@ PORT   STATE SERVICE VERSION
 ```
 
 Add `10.10.10.140 swagshop.htb` in `/etc/hosts` in order to view the content of the website.
+This is due to the fact that the server is using Virtual Host routing.
+
+The site is an e-commerce shopping website and it is cleaely based on **Magento** framework.
+To enumerate it, download magescan.phar from [Magescan](https://github.com/steverobbins/magescan) and run `php magescan.phar scan:all http://swagshop.htb`
+```
++-----------+------------------+
+| Parameter | Value            |
++-----------+------------------+
+| Edition   | Community        |
+| Version   | 1.9.0.0, 1.9.0.1 |
++-----------+------------------+
+
++----------------------------------------------+---------------+--------+
+| Path                                         | Response Code | Status |
++----------------------------------------------+---------------+--------+
+| app/etc/local.xml                            | 200           | Fail   |
+| index.php/rss/order/NEW/new                  | 200           | Fail   |
+| shell/                                       | 200           | Fail   |
+```
