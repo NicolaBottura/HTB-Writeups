@@ -1,4 +1,4 @@
-# Jerry - Linux, easy (10.10.10.95)
+# Jerry - Windows, easy (10.10.10.95)
 
 ### Enumeration
 ```
