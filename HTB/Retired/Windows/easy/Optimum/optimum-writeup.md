@@ -1,4 +1,4 @@
-# Optimum - Linux, easy (10.10.10.8)
+# Optimum - Windows, easy (10.10.10.8)
 
 ### Enumeration
 ```
