@@ -1,5 +1,3 @@
-# CTF
-
-Writeups/Scripts 
+# HTB Writeups for retired machines
 
 𒉭
